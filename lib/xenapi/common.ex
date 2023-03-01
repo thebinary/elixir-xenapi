@@ -3,11 +3,30 @@ defmodule XenAPI.Common do
 
   defmacro __using__(_opts) do
     quote do
-      def get_all(xapi), do: XenClient.session_method_call(xapi, "#{@resource}.get_all")
-      def get_all_records(xapi), do: XenClient.session_method_call(xapi, "#{@resource}.get_all_records")
-      def get_record(xapi, ref_object), do: XenClient.session_method_call(xapi, "#{@resource}.get_record", [ref_object])
-      def get_by_uuid(xapi, uuid), do: XenClient.session_method_call(xapi, "#{@resource}.get_by_uuid", [uuid])
-      def get_by_name_label(xapi, name_label), do: XenClient.session_method_call(xapi, "#{@resource}.get_by_name_label", [name_label])
+      @doc """
+      Get all object references
+      """
+      def get_all(xen_session), do: XenClient.session_method_call(xen_session, "#{@resource}.get_all")
+
+      @doc """
+      Get all full records
+      """
+      def get_all_records(xen_session), do: XenClient.session_method_call(xen_session, "#{@resource}.get_all_records")
+
+      @doc """
+      Get record for given `object-ref`
+      """
+      def get_record(xen_session, ref_object), do: XenClient.session_method_call(xen_session, "#{@resource}.get_record", [ref_object])
+
+      @doc """
+      Get object ref for given `uuid`
+      """
+      def get_by_uuid(xen_session, uuid), do: XenClient.session_method_call(xen_session, "#{@resource}.get_by_uuid", [uuid])
+
+      @doc """
+      Get object references for given `name_label`
+      """
+      def get_by_name_label(xen_session, name_label), do: XenClient.session_method_call(xen_session, "#{@resource}.get_by_name_label", [name_label])
     end
   end
 end
