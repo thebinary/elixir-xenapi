@@ -1,10 +1,8 @@
 defmodule XenAPI.Common do
   @moduledoc false
 
-  defmacro __using__(opts) do
-    quote location: :keep, bind_quoted: [opts: opts] do
-      resource = Keyword.get(opts, :resource)
-
+  defmacro __using__([resource: resource]) do
+    quote location: :keep, bind_quoted: [resource: resource] do
       @doc """
       Get all object references
       """
