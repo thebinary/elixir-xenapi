@@ -1,4 +1,3 @@
 defmodule XenAPI.VIF do
-  @resource "vif"
-  use XenAPI.Common
+  use XenAPI.Common, opts: "VIF"
 end

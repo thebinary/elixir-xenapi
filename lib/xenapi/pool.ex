@@ -1,4 +1,3 @@
 defmodule XenAPI.Pool do
-  @resource "pool"
-  use XenAPI.Common
+  use XenAPI.Common, resource: "pool"
 end

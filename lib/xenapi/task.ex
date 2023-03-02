@@ -1,4 +1,3 @@
 defmodule XenAPI.Task do
-  @resource "task"
-  use XenAPI.Common
+  use XenAPI.Common, resource: "task"
 end

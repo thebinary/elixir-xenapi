@@ -1,4 +1,3 @@
 defmodule XenAPI.VM do
-  @resource "vm"
-  use XenAPI.Common
+  use XenAPI.Common, resource: "VM"
 end

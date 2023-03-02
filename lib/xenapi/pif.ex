@@ -1,4 +1,3 @@
 defmodule XenAPI.PIF do
-  @resource "pif"
-  use XenAPI.Common
+  use XenAPI.Common, resource: "PIF"
 end

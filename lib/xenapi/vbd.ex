@@ -1,4 +1,3 @@
 defmodule XenAPI.VBD do
-  @resource "vbd"
-  use XenAPI.Common
+  use XenAPI.Common, resource: "VBD"
 end

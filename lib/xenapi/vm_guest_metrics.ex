@@ -1,4 +1,3 @@
 defmodule XenAPI.VM_guest_metrics do
-  @resource "vm_guest_metrics"
-  use XenAPI.Common
+  use XenAPI.Common, resource: "VM_guest_metrics"
 end

@@ -1,4 +1,3 @@
 defmodule XenAPI.SR do
-  @resource "sr"
-  use XenAPI.Common
+  use XenAPI.Common, resource: "SR"
 end

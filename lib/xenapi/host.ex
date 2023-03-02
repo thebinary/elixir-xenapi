@@ -1,4 +1,3 @@
 defmodule XenAPI.Host do
-  @resource "host"
-  use XenAPI.Common
+  use XenAPI.Common, resource: "host"
 end
