@@ -44,6 +44,6 @@ defmodule XenClient do
   Make a Xen XMLRPC method call with provided `session`.
   """
   def session_method_call(%XenSession{:host => host, :session => session}, method_name, params \\ []) do
-    session_method_call(%XenSession{host: host}, method_name, [session | params])
+    xen_method_call(host, method_name, [session | params])
   end
 end
