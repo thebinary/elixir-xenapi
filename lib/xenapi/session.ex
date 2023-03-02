@@ -1,5 +1,4 @@
 defmodule XenAPI.Session do
-  import XenSession
   import XenClient
 
   @spec login_with_password(binary, any, any) :: {:error, list} | {:fault, [...]} | {:ok, any}
@@ -8,9 +7,10 @@ defmodule XenAPI.Session do
   """
   def login_with_password(host, username, password), do: xen_method_call(host, "session.login_with_password", [username, password])
 
-  @spec logout(%XenSession{:host => binary, :session => binary}, any) :: {:error, list} | {:fault, [...]} | {:ok, any}
+
+  @spec logout(%XenSession{}) :: {:error, list} | {:fault, [...]} | {:ok, any}
   @doc """
   Log out of a session
   """
-  def logout(%XenSession{:host => host, :session => session}, session), do: xen_method_call(host, "session.logout", [session])
+  def logout(xsession), do: session_method_call(xsession, "session.logout")
 end
