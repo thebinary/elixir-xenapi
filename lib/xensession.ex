@@ -25,7 +25,7 @@ defmodule XenSession do
   def login!(host, username, password) do
     case XenAPI.Session.login_with_password(host, username, password) do
       {:ok, session} -> %XenSession{host: host, session: session}
-      {:error, ["HOST_IS_SLAVE", host]} -> login(host, username, password)
+      {:error, ["HOST_IS_SLAVE", host]} -> login!(host, username, password)
       {:error, error} -> raise(error)
     end
   end
