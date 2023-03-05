@@ -26,4 +26,4 @@ xenapi-*.tar
 /tmp/
 
 # xenapi json spec
-/xenapi.json
+# /xenapi.json
