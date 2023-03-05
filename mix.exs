@@ -1,8 +1,8 @@
-defmodule Xenapi.MixProject do
+defmodule XenAPI.MixProject do
   use Mix.Project
 
   @source_url "https://github.com/thebinary/elixir-xenapi"
-  @version "0.1.0"
+  @version "0.1.1"
 
   def project do
     [
@@ -39,7 +39,7 @@ defmodule Xenapi.MixProject do
     [
       description:
         "Elixir package to interact with Xen XML-RPC",
-      files: ~w(lib mix.exs README.md LICENSE),
+      files: ~w(lib mix.exs README.md LICENSE xenapi.json),
       maintainers: ["TheBinary"],
       licenses: ["MIT"],
       links: %{"GitHub" => @source_url}
