@@ -15,7 +15,7 @@ end
 ## Usage
 
 All `XenAPI` resource module functions require session argument of type `XenSession`.
-For the Xen XMLRPC to success the XenSession should have a valid logged-in session ref.
+For the Xen XMLRPC to succeed the XenSession should have a valid logged-in session ref.
 
 ### Logging In
 To login to a XenServer and obtain a `XenSession` use:
