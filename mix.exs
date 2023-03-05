@@ -31,6 +31,7 @@ defmodule Xenapi.MixProject do
       {:hackney, "~> 1.17"},
       {:xmlrpc, "~> 1.3"},
       {:httpoison, "~> 2.0"},
+      {:jason, "~> 1.4"},
     ]
   end
 
