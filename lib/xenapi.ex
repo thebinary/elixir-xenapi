@@ -1,10 +1,16 @@
 defmodule XenAPI do
   @moduledoc """
   Collection Module for XenAPI resources.
+
+  After compiled modules generation the resources will be available as module `XenAPI.<resource>`.
+
+  For eg: for `VM` resource the module will be `XenAPI.VM` and `VM.get_all` function will be
+  available as `XenAPI.VM.get_all`
   """
 
   import XenAPI.Generate
 
+  # Generate XenAPI resource modules to be compiled. (skipping "session" resource)
   get_resource_list()
   |> Enum.filter(fn x -> x != "session" end)
   |> Enum.map(fn resource ->
