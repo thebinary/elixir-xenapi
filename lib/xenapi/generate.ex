@@ -68,7 +68,7 @@ defmodule XenAPI.Generate do
             case XenClient.session_method_call(xen_session, unquote("#{resource}.#{method}"), [unquote_splicing(params)]) do
               {:error, [err_type, err_reason | _]} -> raise("[ERROR:#{err_type}] #{err_reason}")
               {:fault, [code, fault | _]} -> raise("[FAULT:#{code}] #{fault}")
-              value -> encode(value)
+              {:ok, value} -> encode(value)
             end
           end
 
