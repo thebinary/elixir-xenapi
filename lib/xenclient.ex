@@ -53,8 +53,8 @@ defmodule XenClient do
   def session_method_call!(%XenSession{:host => host, :session => session}, method_name, params \\ []) do
     case xen_method_call(host, method_name, [session | params]) do
       {:ok, value} -> value
-      {:error, [err_type, err_reason]} -> raise("[ERROR:#{err_type}] #{err_reason}")
-      {:fault, [code, fault]} -> raise("[FAULT:#{code}] #{fault}")
+      {:error, [err_type, err_reason | _]} -> raise("[ERROR:#{err_type}] #{err_reason}")
+      {:fault, [code, fault | _]} -> raise("[FAULT:#{code}] #{fault}")
     end
   end
 end
