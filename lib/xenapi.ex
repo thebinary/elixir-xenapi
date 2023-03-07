@@ -10,9 +10,8 @@ defmodule XenAPI do
 
   import XenAPI.Generate
 
-  # Generate XenAPI resource modules to be compiled. (skipping "session" resource)
+  # Generate XenAPI resource modules to be compiled.
   get_resource_list()
-  |> Enum.filter(fn x -> x != "session" end)
   |> Enum.map(fn resource ->
     module_name = cond do
       String.first(resource) !=  String.upcase(String.first(resource)) -> String.capitalize(resource)
