@@ -7,7 +7,7 @@ Elixir package to interact with Xen XML-RPC
 ```elixir
 def deps do
   [
-    {:xenapi, "~> 0.1.2"}
+    {:xenapi, "~> 0.2.0"}
   ]
 end
 ```

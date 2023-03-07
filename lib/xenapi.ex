@@ -13,10 +13,7 @@ defmodule XenAPI do
   # Generate XenAPI resource modules to be compiled.
   get_resource_list()
   |> Enum.map(fn resource ->
-    module_name = cond do
-      String.first(resource) !=  String.upcase(String.first(resource)) -> String.capitalize(resource)
-     true -> resource
-    end
+    module_name = resource |> Macro.camelize
     messages = get_resource_messages(resource)
     IO.puts("Generating #{module_name}")
     defresource module_name, messages
