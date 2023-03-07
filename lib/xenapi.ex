@@ -11,12 +11,18 @@ defmodule XenAPI do
   import XenAPI.Generate
 
   # Generate XenAPI resource modules to be compiled.
-  get_resource_list()
+  data = get_json_spec()
+
+  data
+  |> get_resource_list
   |> Enum.map(fn resource ->
     module_name = resource |> Macro.camelize
-    messages = get_resource_messages(resource)
+    resource_def = data |> get_resource_def(resource)
+    module_descr = resource_def |> get_resource_descr
+    fields = resource_def |> get_resource_fields
+    messages = resource_def |> get_resource_messages
     IO.puts("Generating #{module_name}")
-    defresource module_name, messages
+    defresource module_name, module_descr, fields, messages
   end)
 
 end
